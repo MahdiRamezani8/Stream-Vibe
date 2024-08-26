@@ -1,0 +1,92 @@
+:root {
+  --c-white: #fff;
+  --c-black: #000;
+
+  --c-red-45: #e50000;
+  --c-red-50: #ff0000;
+  --c-red-55: #ff1919;
+  --c-red-60: #ff3333;
+  --c-red-80: #ff9999;
+  --c-red-90: #ffcccc;
+  --c-red-95: #ffe5e5;
+  --c-red-99: #fffafa;
+
+  --c-black-06: #0f0f0f;
+  --c-black-08: #141414;
+  --c-black-10: #1a1a1a;
+  --c-black-12: #1f1f1f;
+  --c-black-15: #262626;
+  --c-black-20: #333333;
+  --c-black-25: #404040;
+  --c-black-30: #4c4c4c;
+
+  --c-gray-60: #999999;
+  --c-gray-65: #a6a6a6;
+  --c-gray-70: #b3b3b3;
+  --c-gray-75: #bfbfbf;
+  --c-gray-90: #e4e4e7;
+  --c-gray-95: #f1f1f3;
+  --c-gray-97: #f7f7f8;
+  --c-gray-99: #fcfcfd;
+}
+
+/* manrope-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assessts/fonts/manrope-v15-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* manrope-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../assessts/fonts/manrope-v15-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* manrope-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../assessts/fonts/manrope-v15-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* manrope-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assessts/fonts/manrope-v15-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  bottom: 0;
+  box-sizing: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  all: unset;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Manrope", Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+}

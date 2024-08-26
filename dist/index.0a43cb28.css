@@ -1,3 +1,81 @@
+.nav {
+  width: calc(100% - var(--side-space) * 2);
+  justify-content: space-between;
+  height: 102px;
+  padding: 40px 0 20px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav--mb > button {
+  border: 3px solid var(--c-black-15);
+  background-color: var(--c-black-10);
+  cursor: pointer;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  display: flex;
+}
+
+.nav--lt {
+  display: none;
+}
+
+.nav--lt > span > button {
+  background-color: #0000;
+  border: 0;
+}
+
+.nav--lt > .nav__list {
+  background-color: var(--c-black-06);
+  border: 3px solid var(--c-black-12);
+  border-radius: 10px;
+  grid-auto-flow: column;
+  gap: 16px;
+  width: 514px;
+  height: 61px;
+  padding: 8px;
+  display: grid;
+}
+
+.nav--lt > .nav__list > .nav__list__item {
+  color: var(--c-white);
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.nav--lt > .nav__list > .nav__list__item.nav__list__item--active {
+  background-color: var(--c-black-10);
+}
+
+@media (width >= 1440px) {
+  .nav--mb {
+    display: none;
+  }
+
+  .nav--lt {
+    display: flex;
+  }
+}
+
+@media (width >= 1920px) {
+  .nav--lt > .nav__list {
+    border-width: 4px;
+    border-radius: 12px;
+    gap: 30px;
+    width: 555px;
+    height: 75px;
+    padding: 10px;
+  }
+}
+
 :root {
   --c-white: #fff;
   --c-black: #000;
@@ -25,6 +103,9 @@
   --c-gray-95: #f1f1f3;
   --c-gray-97: #f7f7f8;
   --c-gray-99: #fcfcfd;
+  --mobile: 370px;
+  --laptop: 1440px;
+  --desktop: 1980px;
 }
 
 @font-face {
@@ -62,7 +143,7 @@
 *, :before, :after {
   box-sizing: inherit;
   margin: 0;
-  bottom: 0;
+  padding: 0;
 }
 
 li {
@@ -78,7 +159,18 @@ html {
 }
 
 body {
+  --side-space: 20px;
+  --count-column: 6;
+  --gap: 20px;
+  box-sizing: border-box;
+  grid-template-columns: calc(var(--side-space)  - var(--gap)) repeat(6, calc((100% - (var(--side-space) * 2)  - (var(--gap) * 5)) / 6)) calc(var(--side-space)  - var(--gap));
+  gap: var(--gap);
+  grid-auto-flow: row;
+  width: 100%;
+  min-height: 50dvh;
   font-family: Manrope, Arial, Helvetica, sans-serif;
   font-size: 1.6rem;
+  display: grid;
+  position: relative;
 }
 /*# sourceMappingURL=index.0a43cb28.css.map */

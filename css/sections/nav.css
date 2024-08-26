@@ -1,0 +1,80 @@
+.nav {
+  height: 102px;
+
+  /* we should handle the width with hardcoding cause it's a fixed position element  */
+  width: calc(100% - var(--side-space) * 2);
+  padding: 40px 0 20px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav--mb > button {
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  border: 3px solid var(--c-black-15);
+  background-color: var(--c-black-10);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav--lt {
+  display: none;
+}
+
+.nav--lt > span > button {
+  background-color: transparent;
+  border: 0;
+}
+
+.nav--lt > .nav__list {
+  width: 514px;
+  height: 61px;
+  padding: 8px;
+  border-radius: 10px;
+  background-color: var(--c-black-06);
+  border: 3px solid var(--c-black-12);
+  display: grid;
+  grid-auto-flow: column;
+  gap: 16px;
+}
+
+.nav--lt > .nav__list > .nav__list__item {
+  border-radius: 8px;
+  color: var(--c-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav--lt > .nav__list > .nav__list__item.nav__list__item--active {
+  background-color: var(--c-black-10);
+}
+
+/* MEDIA QUERIES => */
+
+@media (width >= 1440px) {
+  .nav--mb {
+    display: none;
+  }
+  .nav--lt {
+    display: flex;
+  }
+}
+
+@media (width >= 1920px) {
+  .nav--lt > .nav__list {
+    width: 555px;
+    height: 75px;
+    border-radius: 12px;
+    border-width: 4px;
+    padding: 10px;
+    gap: 30px;
+  }
+}

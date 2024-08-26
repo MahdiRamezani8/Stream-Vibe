@@ -1,4 +1,7 @@
+@import url("./sections/nav.css");
+
 :root {
+  /* colors =>  */
   --c-white: #fff;
   --c-black: #000;
 
@@ -28,6 +31,11 @@
   --c-gray-95: #f1f1f3;
   --c-gray-97: #f7f7f8;
   --c-gray-99: #fcfcfd;
+
+  /* responsive breakpoints => */
+  --mobile: 370px;
+  --laptop: 1440px;
+  --desktop: 1980px;
 }
 
 /* manrope-regular - latin */
@@ -70,7 +78,7 @@
 *::before,
 *::after {
   margin: 0;
-  bottom: 0;
+  padding: 0;
   box-sizing: inherit;
 }
 
@@ -87,6 +95,24 @@ html {
 }
 
 body {
+  --side-space: 20px;
+  --count-column: 6;
+  --gap: 20px;
+
   font-family: "Manrope", Arial, Helvetica, sans-serif;
   font-size: 1.6rem;
+
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 50dvh;
+
+  display: grid;
+  /* prettier-ignore */
+  grid-template-columns:
+    calc(var(--side-space) - var(--gap))
+    repeat(6, calc((100% - (var(--side-space) * 2) - (var(--gap) * 5)) / 6))
+    calc(var(--side-space) - var(--gap));
+  grid-auto-flow: row;
+  gap: var(--gap);
 }

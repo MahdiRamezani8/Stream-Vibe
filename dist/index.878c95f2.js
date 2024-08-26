@@ -584,10 +584,18 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"aB3ls":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _webImmediateJs = require("core-js/modules/web.immediate.js");
 var _runtime = require("regenerator-runtime/runtime");
+var _navView = require("../views/sectionsView/navView");
+var _navViewDefault = parcelHelpers.interopDefault(_navView);
+function init() {
+    // appending elements:
+    (0, _navViewDefault.default).appendToDom((0, _navViewDefault.default).markup);
+}
+init();
 
-},{"core-js/modules/web.immediate.js":"49tUX","regenerator-runtime/runtime":"dXNgZ"}],"49tUX":[function(require,module,exports) {
+},{"core-js/modules/web.immediate.js":"49tUX","regenerator-runtime/runtime":"dXNgZ","../views/sectionsView/navView":"1MyVo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"49tUX":[function(require,module,exports) {
 "use strict";
 // TODO: Remove this module from `core-js@4` since it's split to modules listed below
 require("52e9b3eefbbce1ed");
@@ -2423,6 +2431,139 @@ try {
     else Function("r", "regeneratorRuntime = r")(runtime);
 }
 
-},{}]},["dicMD","aB3ls"], "aB3ls", "parcelRequire0374")
+},{}],"1MyVo":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _view = require("./view");
+var _viewDefault = parcelHelpers.interopDefault(_view);
+var _iconsSvg = require("url:../../../icons/icons.svg");
+var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
+var _logoSvg = require("url:../../../images/mobile/logo.svg");
+var _logoSvgDefault = parcelHelpers.interopDefault(_logoSvg);
+class NavView extends (0, _viewDefault.default) {
+    _markup = `<nav class="nav nav--mb">
+      <img src="${0, _logoSvgDefault.default}" alt="StramVibe" />
+      <button>
+        <svg width="24" height="24">
+          <use href="${0, _iconsSvgDefault.default}#nav"></use>
+        </svg>
+      </button>
+    </nav>
+
+   <!-- Navbar is the same in Laptop and Desktop !-->
+    <nav class="nav nav--lt">
+      <img src="${0, _logoSvgDefault.default}" alt="StramVibe" />
+
+      <ul class="nav__list">
+        <li class="nav__list__item nav__list__item--active">
+          <a href="#">home</a>
+        </li>
+        <li class="nav__list__item"><a href="#">movies & shows</a></li>
+        <li class="nav__list__item"><a href="#">support</a></li>
+      </ul>
+
+      <span>
+        <button class="btn-search">
+          <svg width="24" height="24">
+            <use href="${0, _iconsSvgDefault.default}#search"></use>
+          </svg>
+        </button>
+        <button>
+          <svg width="24" height="24">
+            <use href="${0, _iconsSvgDefault.default}#bell"></use>
+          </svg>
+        </button>
+      </span>
+    </nav>`;
+    get markup() {
+        return this._markup;
+    }
+}
+exports.default = new NavView();
+
+},{"./view":"4HQdA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","url:../../../icons/icons.svg":"hNB7L","url:../../../images/mobile/logo.svg":"6mcRQ"}],"4HQdA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class View {
+    body = document.body;
+    constructor(){}
+    appendToDom(el) {
+        this.body.insertAdjacentHTML("beforeend", el);
+    }
+}
+exports.default = View;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"hNB7L":[function(require,module,exports) {
+module.exports = require("b8176b95b0c287f9").getBundleURL("lAF1V") + "icons.7502462f.svg" + "?" + Date.now();
+
+},{"b8176b95b0c287f9":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"6mcRQ":[function(require,module,exports) {
+module.exports = require("ddc45e897bf2c4b0").getBundleURL("lAF1V") + "logo.24819939.svg" + "?" + Date.now();
+
+},{"ddc45e897bf2c4b0":"lgJ39"}]},["dicMD","aB3ls"], "aB3ls", "parcelRequire0374")
 
 //# sourceMappingURL=index.878c95f2.js.map

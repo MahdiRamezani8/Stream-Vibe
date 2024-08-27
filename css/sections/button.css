@@ -1,0 +1,14 @@
+.btn {
+  border: 0;
+  padding: 14px 24px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--c-white);
+}
+
+.btn--red {
+  text-transform: capitalize;
+  background-color: var(--c-red-45);
+}

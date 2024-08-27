@@ -3,6 +3,7 @@
 
   /* we should handle the width with hardcoding cause it's a fixed position element  */
   width: calc(100% - var(--side-space) * 2);
+
   padding: 40px 0 20px;
   position: fixed;
   top: 0;
@@ -10,6 +11,7 @@
   transform: translateX(-50%);
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .nav--mb > button {
@@ -51,6 +53,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 14px;
 }
 
 .nav--lt > .nav__list > .nav__list__item.nav__list__item--active {
@@ -60,6 +63,10 @@
 /* MEDIA QUERIES => */
 
 @media (width >= 1440px) {
+  .nav {
+    height: 98px;
+    padding-block: 24px;
+  }
   .nav--mb {
     display: none;
   }
@@ -69,6 +76,11 @@
 }
 
 @media (width >= 1920px) {
+  .nav {
+    height: 120px;
+    padding-block: 30px;
+  }
+
   .nav--lt > .nav__list {
     width: 555px;
     height: 75px;
@@ -76,5 +88,14 @@
     border-width: 4px;
     padding: 10px;
     gap: 30px;
+  }
+
+  .nav--lt .nav__list__item .nav__list__item {
+    font-size: 18px;
+  }
+
+  .nav--lt > span > button > svg {
+    width: 34px;
+    height: 34px;
   }
 }

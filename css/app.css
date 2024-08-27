@@ -1,4 +1,5 @@
 @import url("./sections/nav.css");
+@import url("./sections/button.css");
 
 :root {
   /* colors =>  */
@@ -90,10 +91,6 @@ a {
   all: unset;
 }
 
-html {
-  font-size: 62.5%;
-}
-
 body {
   --side-space: 20px;
   --count-column: 6;
@@ -105,7 +102,8 @@ body {
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  min-height: 50dvh;
+  min-height: 100dvh;
+  background-color: var(--c-black-08);
 
   display: grid;
   /* prettier-ignore */
@@ -115,4 +113,34 @@ body {
     calc(var(--side-space) - var(--gap));
   grid-auto-flow: row;
   gap: var(--gap);
+}
+
+h1 {
+  color: var(--c-white);
+  text-transform: capitalize;
+  font-size: 1.75rem;
+  font-size: clamp(
+    1.75rem,
+    1.3024193548387095rem + 1.935483870967742vw,
+    3.625rem
+  );
+}
+
+p {
+  color: var(--c-gray-60);
+  font-size: 0.875rem;
+  font-size: clamp(
+    0.875rem,
+    0.8153225806451613rem + 0.25806451612903225vw,
+    1.125rem
+  );
+}
+
+button {
+  font-family: "Manrope", Arial, Helvetica, sans-serif;
+}
+
+p,
+h1 {
+  line-height: 1.5;
 }

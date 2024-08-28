@@ -2444,7 +2444,7 @@ var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 var _logoSvg = require("url:../../../images/mobile/logo.svg");
 var _logoSvgDefault = parcelHelpers.interopDefault(_logoSvg);
 class NavView extends (0, _viewDefault.default) {
-    _markup = `<nav class="nav nav--mb">
+    _markup = `<nav class="grid nav nav--mb">
       <img src="${0, _logoSvgDefault.default}" alt="StramVibe" />
       <button>
         <svg width="24" height="24">
@@ -2454,7 +2454,7 @@ class NavView extends (0, _viewDefault.default) {
     </nav>
 
    <!-- Navbar is the same in Laptop and Desktop !-->
-    <nav class="nav nav--lt">
+    <nav class="grid nav nav--lt">
       <img src="${0, _logoSvgDefault.default}" alt="StramVibe" />
 
       <ul class="nav__list">
@@ -2577,7 +2577,7 @@ var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 var _playSvg = require("url:../../../images/play.svg");
 var _playSvgDefault = parcelHelpers.interopDefault(_playSvg);
 class HeaderView extends (0, _viewDefault.default) {
-    _markup = `<header class="header">
+    _markup = `<header class="grid header">
       <div class="header__bg">
       </div>
       <div class="header__img">

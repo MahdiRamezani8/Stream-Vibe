@@ -3,7 +3,7 @@ import icons from "url:../../../icons/icons.svg";
 import playImg from "url:../../../images/play.svg";
 
 class HeaderView extends View {
-  _markup = `<header class="header">
+  _markup = `<header class="grid header">
       <div class="header__bg">
       </div>
       <div class="header__img">

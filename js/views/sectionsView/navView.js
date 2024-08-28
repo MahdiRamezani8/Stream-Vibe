@@ -3,7 +3,7 @@ import icons from "url:../../../icons/icons.svg";
 import logo from "url:../../../images/mobile/logo.svg";
 
 class NavView extends View {
-  _markup = `<nav class="nav nav--mb">
+  _markup = `<nav class="grid nav nav--mb">
       <img src="${logo}" alt="StramVibe" />
       <button>
         <svg width="24" height="24">
@@ -13,7 +13,7 @@ class NavView extends View {
     </nav>
 
    <!-- Navbar is the same in Laptop and Desktop !-->
-    <nav class="nav nav--lt">
+    <nav class="grid nav nav--lt">
       <img src="${logo}" alt="StramVibe" />
 
       <ul class="nav__list">

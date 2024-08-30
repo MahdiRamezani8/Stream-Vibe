@@ -9,6 +9,10 @@
   transform: translateX(-50%);
 }
 
+.nav.nav--mb {
+  display: grid;
+}
+
 .nav--mb > button {
   border: 3px solid var(--c-black-15);
   background-color: var(--c-black-10);
@@ -23,9 +27,9 @@
   display: flex;
 }
 
-.nav--lt {
+.nav.nav--lt {
+  grid-template-rows: 1fr;
   display: none;
-  grid-template-rows: 1fr !important;
 }
 
 .nav--lt > span {
@@ -68,11 +72,11 @@
     padding-block: 24px;
   }
 
-  .nav--mb {
-    display: none !important;
+  .nav.nav--mb {
+    display: none;
   }
 
-  .nav--lt {
+  .nav.nav--lt {
     display: grid;
   }
 }

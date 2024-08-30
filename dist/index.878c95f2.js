@@ -589,16 +589,13 @@ var _webImmediateJs = require("core-js/modules/web.immediate.js");
 var _runtime = require("regenerator-runtime/runtime");
 var _navView = require("../views/sectionsView/navView");
 var _navViewDefault = parcelHelpers.interopDefault(_navView);
-var _headerView = require("../views/indexViews/headerView");
-var _headerViewDefault = parcelHelpers.interopDefault(_headerView);
 function init() {
     // appending elements:
-    (0, _navViewDefault.default).appendToDom((0, _navViewDefault.default).markup);
-    (0, _headerViewDefault.default).appendToDom((0, _headerViewDefault.default).markup);
+    (0, _navViewDefault.default).appendToBody((0, _navViewDefault.default).markup);
 }
 init();
 
-},{"core-js/modules/web.immediate.js":"49tUX","regenerator-runtime/runtime":"dXNgZ","../views/sectionsView/navView":"1MyVo","../views/indexViews/headerView":"4fXtt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"49tUX":[function(require,module,exports) {
+},{"core-js/modules/web.immediate.js":"49tUX","regenerator-runtime/runtime":"dXNgZ","../views/sectionsView/navView":"1MyVo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"49tUX":[function(require,module,exports) {
 "use strict";
 // TODO: Remove this module from `core-js@4` since it's split to modules listed below
 require("52e9b3eefbbce1ed");
@@ -2488,10 +2485,14 @@ exports.default = new NavView();
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 class View {
-    body = document.body;
+    _prevEl;
+    _nextEl;
     constructor(){}
     appendToDom(el) {
-        this.body.insertAdjacentHTML("beforeend", el);
+        this._prevEl.insertAdjacentHTML("afterend", el);
+    }
+    appendToBody(el) {
+        document.body.insertAdjacentHTML("afterbegin", el);
     }
 }
 exports.default = View;
@@ -2567,57 +2568,6 @@ exports.getOrigin = getOrigin;
 },{}],"6mcRQ":[function(require,module,exports) {
 module.exports = require("ddc45e897bf2c4b0").getBundleURL("lAF1V") + "logo.24819939.svg" + "?" + Date.now();
 
-},{"ddc45e897bf2c4b0":"lgJ39"}],"4fXtt":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _view = require("./view");
-var _viewDefault = parcelHelpers.interopDefault(_view);
-var _iconsSvg = require("url:../../../icons/icons.svg");
-var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
-var _playSvg = require("url:../../../images/play.svg");
-var _playSvgDefault = parcelHelpers.interopDefault(_playSvg);
-class HeaderView extends (0, _viewDefault.default) {
-    _markup = `<header class="grid header">
-      <div class="header__bg">
-      </div>
-      <div class="header__img">
-        <img src="${0, _playSvgDefault.default}" alt="Play" />
-      </div>
-      <div class="header__text">
-        <h1>the best streaming experience</h1>
-        <p>
-          StreamVibe is the best streaming experience for watching your favorite
-          movies and shows on demand, anytime, anywhere.
-        </p>
-        <button class="btn btn--red">
-          <svg width="24" height="24">
-            <use href="${0, _iconsSvgDefault.default}#play"></use>
-          </svg>
-          start watching now
-        </button>
-      </div>
-    </header>`;
-    get markup() {
-        return this._markup;
-    }
-}
-exports.default = new HeaderView();
-
-},{"./view":"2CSMN","url:../../../icons/icons.svg":"hNB7L","url:../../../images/play.svg":"gkNWJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2CSMN":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-class View {
-    body = document.body;
-    constructor(){}
-    appendToDom(el) {
-        this.body.insertAdjacentHTML("beforeend", el);
-    }
-}
-exports.default = View;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkNWJ":[function(require,module,exports) {
-module.exports = require("b132fff0258bc9b0").getBundleURL("lAF1V") + "play.c0559ed6.svg" + "?" + Date.now();
-
-},{"b132fff0258bc9b0":"lgJ39"}]},["dicMD","aB3ls"], "aB3ls", "parcelRequire0374")
+},{"ddc45e897bf2c4b0":"lgJ39"}]},["dicMD","aB3ls"], "aB3ls", "parcelRequire0374")
 
 //# sourceMappingURL=index.878c95f2.js.map

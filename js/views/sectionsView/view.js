@@ -1,10 +1,15 @@
 class View {
-  body = document.body;
+  _prevEl;
+  _nextEl;
 
   constructor() {}
 
   appendToDom(el) {
-    this.body.insertAdjacentHTML("beforeend", el)
+    this._prevEl.insertAdjacentHTML("afterend", el);
+  }
+
+  appendToBody(el) {
+    document.body.insertAdjacentHTML("afterbegin", el);
   }
 }
 

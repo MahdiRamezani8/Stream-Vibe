@@ -1,5 +1,5 @@
 import Splide from "@splidejs/splide";
-import View from "./view";
+import View from "../view";
 import icons from "url:../../../icons/icons.svg";
 import image1 from "url:../../../images/Image1.png";
 import image2 from "url:../../../images/Image2.png";

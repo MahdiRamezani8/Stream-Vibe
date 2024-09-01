@@ -2437,7 +2437,7 @@ try {
 },{}],"1MyVo":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _view = require("./view");
+var _view = require("../view");
 var _viewDefault = parcelHelpers.interopDefault(_view);
 var _iconsSvg = require("url:../../../icons/icons.svg");
 var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
@@ -2484,48 +2484,7 @@ class NavView extends (0, _viewDefault.default) {
 }
 exports.default = new NavView();
 
-},{"./view":"4HQdA","url:../../../icons/icons.svg":"hNB7L","url:../../../images/mobile/logo.svg":"6mcRQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4HQdA":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-class View {
-    constructor(){}
-    appendToDom(parent, el, position) {
-        parent.insertAdjacentHTML(position, el);
-    }
-}
-exports.default = View;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"hNB7L":[function(require,module,exports) {
+},{"url:../../../icons/icons.svg":"hNB7L","url:../../../images/mobile/logo.svg":"6mcRQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../view":"7MbWE"}],"hNB7L":[function(require,module,exports) {
 module.exports = require("b8176b95b0c287f9").getBundleURL("lAF1V") + "icons.7502462f.svg" + "?" + Date.now();
 
 },{"b8176b95b0c287f9":"lgJ39"}],"lgJ39":[function(require,module,exports) {
@@ -2566,12 +2525,53 @@ exports.getOrigin = getOrigin;
 },{}],"6mcRQ":[function(require,module,exports) {
 module.exports = require("ddc45e897bf2c4b0").getBundleURL("lAF1V") + "logo.24819939.svg" + "?" + Date.now();
 
-},{"ddc45e897bf2c4b0":"lgJ39"}],"hfbbQ":[function(require,module,exports) {
+},{"ddc45e897bf2c4b0":"lgJ39"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"7MbWE":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class View {
+    constructor(){}
+    appendToDom(parent, el, position) {
+        parent.insertAdjacentHTML(position, el);
+    }
+}
+exports.default = View;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hfbbQ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _splide = require("@splidejs/splide");
 var _splideDefault = parcelHelpers.interopDefault(_splide);
-var _view = require("./view");
+var _view = require("../view");
 var _viewDefault = parcelHelpers.interopDefault(_view);
 var _iconsSvg = require("url:../../../icons/icons.svg");
 var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
@@ -2741,7 +2741,7 @@ class GenreSplideView extends (0, _viewDefault.default) {
 // Export an instance of the GenreSplideView class
 exports.default = new GenreSplideView();
 
-},{"@splidejs/splide":"5CJev","./view":"4HQdA","url:../../../icons/icons.svg":"hNB7L","url:../../../images/Image1.png":"lINO8","url:../../../images/Image2.png":"fJn8S","url:../../../images/Image3.png":"9T6aC","url:../../../images/Image4.png":"dcKRr","../../config":"4Wc5b","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5CJev":[function(require,module,exports) {
+},{"@splidejs/splide":"5CJev","url:../../../icons/icons.svg":"hNB7L","url:../../../images/Image1.png":"lINO8","url:../../../images/Image2.png":"fJn8S","url:../../../images/Image3.png":"9T6aC","url:../../../images/Image4.png":"dcKRr","../../config":"4Wc5b","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../view":"7MbWE"}],"5CJev":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CLASSES", ()=>CLASSES);

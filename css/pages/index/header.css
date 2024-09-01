@@ -1,8 +1,6 @@
 .header {
   --nav-height: 102px;
 
-  max-height: 100dvh;
-
   grid-column: 2/-2;
   place-items: center;
 

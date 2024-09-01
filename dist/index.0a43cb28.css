@@ -205,11 +205,13 @@ a {
 body {
   box-sizing: border-box;
   background-color: var(--c-black-08);
+  color: var(--c-white);
   width: 100%;
   min-height: 100dvh;
   font-family: Manrope, Arial, Helvetica, sans-serif;
   font-size: 1.6rem;
   position: relative;
+  overflow-x: hidden;
 }
 
 .grid {
@@ -234,9 +236,12 @@ body {
 }
 
 h1 {
-  color: var(--c-white);
   text-transform: capitalize;
   font-size: clamp(1.75rem, 1.30242rem + 1.93548vw, 3.625rem);
+}
+
+h2 {
+  font-size: clamp(1.25rem, .981452rem + 1.16129vw, 2.375rem);
 }
 
 p {
@@ -252,12 +257,17 @@ p, h1 {
   line-height: 1.5;
 }
 
+.section-title {
+  flex-direction: column;
+  gap: 10px;
+  display: flex;
+}
+
 .header {
   --nav-height: 102px;
   margin-top: calc(var(--nav-height)  + 40px);
   grid-column: 2 / -2;
   place-items: center;
-  max-height: 100dvh;
 }
 
 .header .header__bg {
@@ -330,6 +340,87 @@ p, h1 {
 @media (width >= 1920px) {
   .header {
     --nav-height: 120px;
+  }
+}
+
+.h {
+  background-color: red;
+  grid-column: 2 / -2;
+  width: 100px;
+  height: 500px;
+}
+
+.genre-slider {
+  flex-direction: column;
+  grid-column: 2 / -2;
+  gap: 40px;
+  display: flex;
+}
+
+.genre-slider__slide {
+  background-color: var(--c-black-10);
+  border-radius: 10px;
+  padding: 20px;
+  overflow: hidden !important;
+}
+
+.genre-slider__slide .genre-slider__slide__header {
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  display: grid;
+  position: relative;
+}
+
+.genre-slider__slide .genre-slider__slide__header:after {
+  content: "";
+  background: linear-gradient(to top, var(--c-black-10), transparent);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.genre-slider__slide .genre-slider__slide__header img {
+  border-radius: 6px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.genre-slider .genre-slider__slide__footer {
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+}
+
+.splide--pagination-cu {
+  background-color: var(--c-black-20);
+  border-radius: 12px;
+  width: 150px;
+  height: 8px;
+  display: flex;
+  overflow: hidden;
+}
+
+.splide--pagination-cu.splide--pagination-cu--MB {
+  margin-inline: auto;
+}
+
+.splide--pagination-cu li {
+  border-radius: 12px;
+  flex: 1;
+}
+
+.splide--pagination-cu li.active {
+  background-color: var(--c-red-45);
+}
+
+@media (width > 768px) {
+  .splide--pagination-cu.splide--pagination-cu--MB {
+    display: none;
   }
 }
 /*# sourceMappingURL=index.0a43cb28.css.map */

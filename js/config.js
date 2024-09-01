@@ -1,6 +1,15 @@
-const API_KEY = "e82b2dba";
-const URL = `http://www.omdbapi.com/?apikey=${API_KEY}&`;
-
+export const API_KEY = "e82b2dba";
+export const URL = `http://www.omdbapi.com/?apikey=${API_KEY}&`;
+export const SLIDES_PER_PAGE_MB = 2;
+export const SLIDES_PER_PAGE_TB = 3;
+export const SLIDES_PER_PAGE_LT = 4;
+export const SLIDES_PER_PAGE_DE = 5;
+export const mediaQueryConfig = {
+  "(min-width: 0px)": SLIDES_PER_PAGE_MB,
+  "(min-width: 768px)": SLIDES_PER_PAGE_TB,
+  "(min-width: 1440px)": SLIDES_PER_PAGE_LT,
+  "(min-width: 1920px)": SLIDES_PER_PAGE_DE,
+};
 const POSTER_MOVIES = {
   action: ["the union", "civil war", "deadpool", "the fall guy"],
   adventure: ["blue beetle", "atlas", "spaceman", "borderlands"],

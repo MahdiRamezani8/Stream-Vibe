@@ -343,13 +343,6 @@ p, h1 {
   }
 }
 
-.h {
-  background-color: red;
-  grid-column: 2 / -2;
-  width: 100px;
-  height: 500px;
-}
-
 .genre-slider {
   flex-direction: column;
   grid-column: 2 / -2;

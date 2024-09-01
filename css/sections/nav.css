@@ -1,20 +1,20 @@
 .nav {
   height: 102px;
-
-  /* we should handle the width with hardcoding cause it's a fixed position element  */
-  width: calc(100% - var(--side-space) * 2);
-
-  padding: 40px 0 20px;
+  width: 100%;
+  padding: 40px var(--side-space) 20px;
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
 
   align-items: center;
+  transition: 0.3s;
 }
 
-.nav.nav--mb {
-  display: grid;
+.nav.active {
+  background-color: #ffffff1a;
+  backdrop-filter: blur(10px);
+  padding-block: 10px;
 }
 
 .nav--mb > button {
@@ -79,6 +79,10 @@
     padding-block: 24px;
   }
 
+  .nav.active {
+    padding-block: 24px;
+  }
+
   .nav.nav--mb {
     display: none;
   }
@@ -91,6 +95,10 @@
 @media (width >= 1920px) {
   .nav {
     height: 120px;
+    padding-block: 30px;
+  }
+
+  .nav.active {
     padding-block: 30px;
   }
 

@@ -55,7 +55,7 @@ class GenreSplideView extends View {
   render() {
     this.appendToDom(
       document.querySelector(".section-title"),
-      this.markup,
+      this._markup,
       "afterend"
     );
     this.initSplide();
@@ -87,11 +87,6 @@ class GenreSplideView extends View {
           </li>`
       )
       .join("");
-  }
-
-  // Getter to return the markup for rendering
-  get markup() {
-    return this._markup;
   }
 
   // Initialize the Splide carousel with responsive configuration and custom pagination

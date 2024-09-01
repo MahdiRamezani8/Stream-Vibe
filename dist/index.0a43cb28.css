@@ -1,16 +1,19 @@
 .nav {
-  width: calc(100% - var(--side-space) * 2);
+  padding: 40px var(--side-space) 20px;
   align-items: center;
+  width: 100%;
   height: 102px;
-  padding: 40px 0 20px;
+  transition: all .3s;
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.nav.nav--mb {
-  display: grid;
+.nav.active {
+  backdrop-filter: blur(10px);
+  background-color: #ffffff1a;
+  padding-block: 10px;
 }
 
 .nav--mb > button {
@@ -72,6 +75,10 @@
     padding-block: 24px;
   }
 
+  .nav.active {
+    padding-block: 24px;
+  }
+
   .nav.nav--mb {
     display: none;
   }
@@ -84,6 +91,10 @@
 @media (width >= 1920px) {
   .nav {
     height: 120px;
+    padding-block: 30px;
+  }
+
+  .nav.active {
     padding-block: 30px;
   }
 

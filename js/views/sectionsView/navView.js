@@ -38,8 +38,32 @@ class NavView extends View {
       </span>
     </nav>`;
 
-  get markup() {
-    return this._markup;
+  render() {
+    this.appendToDom(document.body, this._markup, "afterbegin");
+    this._intersectionObserevrHandler();
+  }
+
+  _intersectionObserevrHandler() {
+    const headerEl = document.querySelector(".header");
+    const navEls = document.querySelectorAll(".nav");
+
+    function obsereveCallback([entry]) {
+      if (!entry.isIntersecting)
+        navEls.forEach((el) => el.classList.add("active"));
+      else navEls.forEach((el) => el.classList.remove("active"));
+    }
+
+    const observerOptoins = {
+      root: null,
+      threshold: 0.5,
+    };
+
+    const headerObserevr = new IntersectionObserver(
+      obsereveCallback,
+      observerOptoins
+    );
+
+    headerObserevr.observe(headerEl);
   }
 }
 

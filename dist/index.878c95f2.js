@@ -593,8 +593,8 @@ var _genreSplideView = require("../views/sectionsView/genreSplideView");
 var _genreSplideViewDefault = parcelHelpers.interopDefault(_genreSplideView);
 function init() {
     // appending elements:
-    (0, _navViewDefault.default).appendToDom(document.body, (0, _navViewDefault.default).markup, "afterbegin");
-    (0, _genreSplideViewDefault.default).render((0, _genreSplideViewDefault.default).markup);
+    (0, _genreSplideViewDefault.default).render();
+    (0, _navViewDefault.default).render();
 }
 init();
 
@@ -2478,8 +2478,23 @@ class NavView extends (0, _viewDefault.default) {
         </button>
       </span>
     </nav>`;
-    get markup() {
-        return this._markup;
+    render() {
+        this.appendToDom(document.body, this._markup, "afterbegin");
+        this._intersectionObserevrHandler();
+    }
+    _intersectionObserevrHandler() {
+        const headerEl = document.querySelector(".header");
+        const navEls = document.querySelectorAll(".nav");
+        function obsereveCallback([entry]) {
+            if (!entry.isIntersecting) navEls.forEach((el)=>el.classList.add("active"));
+            else navEls.forEach((el)=>el.classList.remove("active"));
+        }
+        const observerOptoins = {
+            root: null,
+            threshold: 0.5
+        };
+        const headerObserevr = new IntersectionObserver(obsereveCallback, observerOptoins);
+        headerObserevr.observe(headerEl);
     }
 }
 exports.default = new NavView();
@@ -2647,7 +2662,7 @@ class GenreSplideView extends (0, _viewDefault.default) {
   `;
     // Render the carousel and initialize Splide
     render() {
-        this.appendToDom(document.querySelector(".section-title"), this.markup, "afterend");
+        this.appendToDom(document.querySelector(".section-title"), this._markup, "afterend");
         this.initSplide();
     }
     // Generate the HTML markup for each slide using the _slides array
@@ -2668,10 +2683,6 @@ class GenreSplideView extends (0, _viewDefault.default) {
               </footer>
             </div>
           </li>`).join("");
-    }
-    // Getter to return the markup for rendering
-    get markup() {
-        return this._markup;
     }
     // Initialize the Splide carousel with responsive configuration and custom pagination
     initSplide() {

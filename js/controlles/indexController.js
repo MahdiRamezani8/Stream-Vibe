@@ -5,8 +5,8 @@ import genreSplideView from "../views/sectionsView/genreSplideView";
 
 function init() {
   // appending elements:
-  navView.appendToDom(document.body, navView.markup, "afterbegin");
-  genreSplideView.render(genreSplideView.markup);
+  genreSplideView.render();
+  navView.render();
 }
 
 init();

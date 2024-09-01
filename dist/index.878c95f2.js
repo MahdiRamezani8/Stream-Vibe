@@ -591,73 +591,9 @@ var _navView = require("../views/sectionsView/navView");
 var _navViewDefault = parcelHelpers.interopDefault(_navView);
 var _genreSplideView = require("../views/sectionsView/genreSplideView");
 var _genreSplideViewDefault = parcelHelpers.interopDefault(_genreSplideView);
-// import Splide from "@splidejs/splide";
-// const genreSplide = new Splide(".splide", {
-//   arrows: false,
-//   pagination: false,
-//   perPage: SLIDES_PER_PAGE_MB,
-//   mediaQuery: "min",
-//   gap: "20px",
-//   perMove: 1,
-//   breakpoints: {
-//     768: {
-//       perPage: SLIDES_PER_PAGE_TB,
-//     },
-//     1440: {
-//       perPage: SLIDES_PER_PAGE_LT,
-//     },
-//     1920: {
-//       perPage: SLIDES_PER_PAGE_DE,
-//     },
-//   },
-// }).mount();
-// const pagination = document.querySelector(".splide--pagination-cu");
-// // Object mapping media queries to slide counts
-// const mediaQueryConfig = {
-//   "(min-width: 0px)": SLIDES_PER_PAGE_MB,
-//   "(min-width: 768px)": SLIDES_PER_PAGE_TB,
-//   "(min-width: 1440px)": SLIDES_PER_PAGE_LT,
-//   "(min-width: 1920px)": SLIDES_PER_PAGE_DE,
-// };
-// // Function to handle media query changes
-// function handleMediaQueryChange(mediaQueryList, slidesPerPage) {
-//   if (mediaQueryList.matches) paginationHandler(slidesPerPage);
-// }
-// // Set up media queries and event listeners
-// Object.keys(mediaQueryConfig).forEach((query) => {
-//   const mediaQueryList = window.matchMedia(query);
-//   const slidesPerPage = mediaQueryConfig[query];
-//   handleMediaQueryChange(mediaQueryList, slidesPerPage);
-//   mediaQueryList.addEventListener("change", (e) => {
-//     handleMediaQueryChange(e, slidesPerPage);
-//   });
-// });
-// function paginationHandler(slidesPerPage) {
-//   pagination.innerHTML = "";
-//   const pagesLength = Math.ceil(genreSplide.length / slidesPerPage);
-//   for (let index = 0; index < pagesLength; index++) {
-//     const markup = `<li> </li>`;
-//     pagination.insertAdjacentHTML("afterbegin", markup);
-//   }
-//   if (slidesPerPage === pagesLength) {
-//     return;
-//   }
-//   const paginationItems = document.querySelectorAll(
-//     ".splide--pagination-cu>li"
-//   );
-//   paginationItems[0].classList.add("active");
-//   genreSplide.on("move", (index, prev) => {
-//     const page = Math.ceil(index / slidesPerPage);
-//     const prevPage = Math.ceil(prev / slidesPerPage);
-//     console.log(page);
-//     if (page === prevPage) return;
-//     paginationItems[prevPage]?.classList.remove("active");
-//     paginationItems[page]?.classList.add("active");
-//   });
-// }
 function init() {
     // appending elements:
-    (0, _navViewDefault.default).appendToBody((0, _navViewDefault.default).markup);
+    (0, _navViewDefault.default).appendToDom(document.body, (0, _navViewDefault.default).markup, "afterbegin");
     (0, _genreSplideViewDefault.default).render((0, _genreSplideViewDefault.default).markup);
 }
 init();
@@ -2552,14 +2488,9 @@ exports.default = new NavView();
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 class View {
-    _prevEl;
-    _nextEl;
     constructor(){}
-    appendToDom(el) {
-        this._prevEl.insertAdjacentHTML("afterend", el);
-    }
-    appendToBody(el) {
-        document.body.insertAdjacentHTML("afterbegin", el);
+    appendToDom(parent, el, position) {
+        parent.insertAdjacentHTML(position, el);
     }
 }
 exports.default = View;
@@ -2655,11 +2586,6 @@ var _image4PngDefault = parcelHelpers.interopDefault(_image4Png);
 var _config = require("../../config");
 // Class to handle the genre-specific Splide carousel view
 class GenreSplideView extends (0, _viewDefault.default) {
-    constructor(){
-        super();
-        // Select the element with the class "section-title" to reference later
-        this._prevEl = document.querySelector(".section-title");
-    }
     // Array of slide data with associated images and genre labels
     _slides = [
         {
@@ -2721,7 +2647,7 @@ class GenreSplideView extends (0, _viewDefault.default) {
   `;
     // Render the carousel and initialize Splide
     render() {
-        this.appendToDom(this.markup);
+        this.appendToDom(document.querySelector(".section-title"), this.markup, "afterend");
         this.initSplide();
     }
     // Generate the HTML markup for each slide using the _slides array

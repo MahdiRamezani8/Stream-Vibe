@@ -1,11 +1,9 @@
 class View {
-    body = document.body;
-  
-    constructor() {}
-  
-    appendToDom(el) {
-      this.body.insertAdjacentHTML("beforeend", el)
-    }
+  constructor() {}
+
+  appendToDom(parent, el, position) {
+    parent.insertAdjacentHTML(position, el);
   }
-  
-  export default View;
+}
+
+export default View;

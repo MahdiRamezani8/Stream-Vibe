@@ -15,12 +15,6 @@ import {
 
 // Class to handle the genre-specific Splide carousel view
 class GenreSplideView extends View {
-  constructor() {
-    super();
-    // Select the element with the class "section-title" to reference later
-    this._prevEl = document.querySelector(".section-title");
-  }
-
   // Array of slide data with associated images and genre labels
   _slides = [
     {
@@ -59,7 +53,11 @@ class GenreSplideView extends View {
 
   // Render the carousel and initialize Splide
   render() {
-    this.appendToDom(this.markup);
+    this.appendToDom(
+      document.querySelector(".section-title"),
+      this.markup,
+      "afterend"
+    );
     this.initSplide();
   }
 

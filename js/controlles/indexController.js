@@ -1,12 +1,15 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import navView from "../views/sectionsView/navView";
-import genreSplideView from "../views/sectionsView/genreSplideView";
+import NavView from "../views/sectionsView/navView";
+import GenreSplideView from "../views/sectionsView/genreSplideView";
+import DevicesView from "../views/indexViews/devicesView";
+import { devices } from "../config";
 
 function init() {
   // appending elements:
-  genreSplideView.render();
-  navView.render();
+  GenreSplideView.render();
+  NavView.render();
+  DevicesView.render(devices);
 }
 
 init();

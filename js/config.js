@@ -10,6 +10,45 @@ export const mediaQueryConfig = {
   "(min-width: 1440px)": SLIDES_PER_PAGE_LT,
   "(min-width: 1920px)": SLIDES_PER_PAGE_DE,
 };
+
+export const devices = [
+  {
+    icon: "phoneicon",
+    device: "smartphone",
+    caption:
+      "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store",
+  },
+  {
+    icon: "tablet",
+    device: "tablet",
+    caption:
+      "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store",
+  },
+  {
+    icon: "TV",
+    device: "smart TV",
+    caption:
+      "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store",
+  },
+  {
+    icon: "laptop",
+    device: "laptops",
+    caption:
+      "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store",
+  },
+  {
+    icon: "gaming",
+    device: "gaming consoles",
+    caption:
+      "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store",
+  },
+  {
+    icon: "VR",
+    device: "VR headsets",
+    caption:
+      "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store",
+  },
+];
 const POSTER_MOVIES = {
   action: ["the union", "civil war", "deadpool", "the fall guy"],
   adventure: ["blue beetle", "atlas", "spaceman", "borderlands"],

@@ -255,6 +255,10 @@ h2 {
   font-size: clamp(1.25rem, .981452rem + 1.16129vw, 2.375rem);
 }
 
+h3 {
+  font-size: clamp(1.125rem, 1.03548rem + .387097vw, 1.5rem);
+}
+
 p {
   color: var(--c-gray-60);
   font-size: clamp(.875rem, .815323rem + .258065vw, 1.125rem);
@@ -271,6 +275,7 @@ p, h1 {
 .section-title {
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 80px;
   display: flex;
 }
 
@@ -357,7 +362,6 @@ p, h1 {
 .genre-slider {
   flex-direction: column;
   grid-column: 2 / -2;
-  gap: 40px;
   display: flex;
 }
 
@@ -418,6 +422,10 @@ p, h1 {
   flex: 1;
 }
 
+.splide--pagination-cu.splide--pagination-cu--MB {
+  margin-top: 40px;
+}
+
 .splide--pagination-cu li.active {
   background-color: var(--c-red-45);
 }
@@ -425,6 +433,74 @@ p, h1 {
 @media (width > 768px) {
   .splide--pagination-cu.splide--pagination-cu--MB {
     display: none;
+  }
+}
+
+.devices {
+  grid-column: 2 / -2;
+}
+
+.devices__list {
+  grid-template-columns: 1fr;
+  grid-auto-flow: row;
+  gap: 20px;
+  display: grid;
+}
+
+.devices__list__item {
+  border: 1px solid var(--c-black-12);
+  background: linear-gradient(230deg, #e5000045, var(--c-black-08) 80%);
+  border-radius: 10px;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  display: flex;
+}
+
+.devices__list__item__head {
+  align-items: center;
+  gap: 10px;
+  display: flex;
+}
+
+.devices__list__item__head span {
+  background-color: var(--c-black-08);
+  border: 1px solid var(--c-black-12);
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  display: flex;
+}
+
+.devices__list__item__head span svg {
+  fill: var(--c-red-45) !important;
+}
+
+.devices__list__item__head {
+  text-transform: capitalize;
+}
+
+.devices__list__item__foot {
+  height: 84px;
+  max-height: 84px;
+  overflow-y: scroll;
+}
+
+.devices__list__item__foot p {
+  max-width: 50ch;
+}
+
+@media (width >= 768px) {
+  .devices__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 1440px) {
+  .devices__list {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 /*# sourceMappingURL=index.0a43cb28.css.map */

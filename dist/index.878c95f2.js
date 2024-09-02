@@ -591,14 +591,18 @@ var _navView = require("../views/sectionsView/navView");
 var _navViewDefault = parcelHelpers.interopDefault(_navView);
 var _genreSplideView = require("../views/sectionsView/genreSplideView");
 var _genreSplideViewDefault = parcelHelpers.interopDefault(_genreSplideView);
+var _devicesView = require("../views/indexViews/devicesView");
+var _devicesViewDefault = parcelHelpers.interopDefault(_devicesView);
+var _config = require("../config");
 function init() {
     // appending elements:
     (0, _genreSplideViewDefault.default).render();
     (0, _navViewDefault.default).render();
+    (0, _devicesViewDefault.default).render((0, _config.devices));
 }
 init();
 
-},{"core-js/modules/web.immediate.js":"49tUX","regenerator-runtime/runtime":"dXNgZ","../views/sectionsView/navView":"1MyVo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../views/sectionsView/genreSplideView":"hfbbQ"}],"49tUX":[function(require,module,exports) {
+},{"core-js/modules/web.immediate.js":"49tUX","regenerator-runtime/runtime":"dXNgZ","../views/sectionsView/navView":"1MyVo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../views/sectionsView/genreSplideView":"hfbbQ","../views/indexViews/devicesView":"yEMPn","../config":"4Wc5b"}],"49tUX":[function(require,module,exports) {
 "use strict";
 // TODO: Remove this module from `core-js@4` since it's split to modules listed below
 require("52e9b3eefbbce1ed");
@@ -5819,6 +5823,7 @@ parcelHelpers.export(exports, "SLIDES_PER_PAGE_TB", ()=>SLIDES_PER_PAGE_TB);
 parcelHelpers.export(exports, "SLIDES_PER_PAGE_LT", ()=>SLIDES_PER_PAGE_LT);
 parcelHelpers.export(exports, "SLIDES_PER_PAGE_DE", ()=>SLIDES_PER_PAGE_DE);
 parcelHelpers.export(exports, "mediaQueryConfig", ()=>mediaQueryConfig);
+parcelHelpers.export(exports, "devices", ()=>devices);
 const API_KEY = "e82b2dba";
 const URL = `http://www.omdbapi.com/?apikey=${API_KEY}&`;
 const SLIDES_PER_PAGE_MB = 2;
@@ -5831,6 +5836,38 @@ const mediaQueryConfig = {
     "(min-width: 1440px)": SLIDES_PER_PAGE_LT,
     "(min-width: 1920px)": SLIDES_PER_PAGE_DE
 };
+const devices = [
+    {
+        icon: "phoneicon",
+        device: "smartphone",
+        caption: "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store"
+    },
+    {
+        icon: "tablet",
+        device: "tablet",
+        caption: "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store"
+    },
+    {
+        icon: "TV",
+        device: "smart TV",
+        caption: "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store"
+    },
+    {
+        icon: "laptop",
+        device: "laptops",
+        caption: "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store"
+    },
+    {
+        icon: "gaming",
+        device: "gaming consoles",
+        caption: "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store"
+    },
+    {
+        icon: "VR",
+        device: "VR headsets",
+        caption: "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store"
+    }
+];
 const POSTER_MOVIES = {
     action: [
         "the union",
@@ -6021,6 +6058,45 @@ const SHOWS = {
     ]
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["dicMD","aB3ls"], "aB3ls", "parcelRequire0374")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"yEMPn":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _view = require("../view");
+var _viewDefault = parcelHelpers.interopDefault(_view);
+var _iconsSvg = require("../../../icons/icons.svg");
+var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
+class DevicesView extends (0, _viewDefault.default) {
+    render(devices) {
+        const generatedMarkup = this._generateMarkup(devices);
+        this.appendToDom(document.querySelector(".devices__list"), generatedMarkup, "beforeend");
+    }
+    _generateMarkup(devices) {
+        return devices.map((device)=>{
+            return `
+        <li class="devices__list__item">
+            <header class="devices__list__item__head">
+            <span>
+                <svg width="24" height="24">
+                <use href="${0, _iconsSvgDefault.default}#${device.icon}"></use>
+                </svg>
+            </span>
+            <h3>
+                ${device.device}
+            </h3>
+            </header>
+            <footer class="devices__list__item__foot">
+            <p>${device.caption}</p>
+            </footer>
+        </li>
+    `;
+        }).join("");
+    }
+}
+exports.default = new DevicesView();
+
+},{"../view":"7MbWE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../icons/icons.svg":"aUFhk"}],"aUFhk":[function(require,module,exports) {
+module.exports = require("dc532ecd6313c8e9").getBundleURL("lAF1V") + "icons.012a97ad.svg" + "?" + Date.now();
+
+},{"dc532ecd6313c8e9":"lgJ39"}]},["dicMD","aB3ls"], "aB3ls", "parcelRequire0374")
 
 //# sourceMappingURL=index.878c95f2.js.map

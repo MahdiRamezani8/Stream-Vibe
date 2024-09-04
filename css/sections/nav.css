@@ -7,6 +7,7 @@
   left: 50%;
   transform: translateX(-50%);
 
+  z-index: 999;
   align-items: center;
   transition: 0.3s;
 }
@@ -15,6 +16,7 @@
   background-color: #ffffff1a;
   backdrop-filter: blur(10px);
   padding-block: 10px;
+  height: auto;
 }
 
 .nav--mb > button {
@@ -79,10 +81,6 @@
     padding-block: 24px;
   }
 
-  .nav.active {
-    padding-block: 24px;
-  }
-
   .nav.nav--mb {
     display: none;
   }
@@ -95,10 +93,6 @@
 @media (width >= 1920px) {
   .nav {
     height: 120px;
-    padding-block: 30px;
-  }
-
-  .nav.active {
     padding-block: 30px;
   }
 

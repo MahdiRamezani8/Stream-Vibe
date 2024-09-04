@@ -1,0 +1,107 @@
+.FAQs {
+  grid-column: 2/-2;
+}
+
+.FAQs__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-flow: row;
+  column-gap: 40px;
+}
+
+.FAQs__list__item {
+  position: relative;
+  padding: 20px 10px;
+  display: grid;
+  grid-template-rows: auto auto 0;
+  grid-template-columns: 1fr;
+  transition: 1s;
+  gap: 12px;
+}
+
+.minus {
+  display: none;
+}
+
+.plus {
+  display: block;
+}
+
+.FAQs__list__item.open .plus {
+  display: none;
+}
+
+.FAQs__list__item.open .minus {
+  display: block;
+}
+
+.FAQs__list__item.open .FAQs__list__item_A {
+  grid-template-rows: 1fr;
+}
+
+.FAQs__list__item_A {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: 0.5s;
+}
+.FAQs__list__item_A p {
+  overflow: hidden;
+}
+.FAQs__list__item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  /* it's 20px - 12px gap */
+  bottom: -8px;
+  display: inline-block;
+  width: 100%;
+  height: 2px;
+  margin-block: 20px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #e5000066 50%,
+    transparent
+  );
+}
+
+.FAQs__list__item_Q {
+  --counter-width: 44px;
+
+  display: grid;
+  grid-template-columns: var(--counter-width) 1fr 24px;
+  align-items: center;
+  gap: 16px;
+}
+
+.FAQs__list__item_Q span {
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  background-color: var(--c-black-12);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  border-radius: 6px;
+  border: 1px solid var(--c-black-15);
+}
+
+.FAQs__list__item_Q svg use {
+  fill: white !important;
+  color: #fff;
+  background-color: #fff;
+}
+
+@media (width > 768px) {
+  .FAQs__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .FAQs__list__item:nth-last-child(2)::after {
+    all: unset;
+  }
+}

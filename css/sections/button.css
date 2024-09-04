@@ -12,3 +12,9 @@
   text-transform: capitalize;
   background-color: var(--c-red-45);
 }
+
+.btn--transparent {
+  background-color: transparent;
+  display: block;
+  padding: 0;
+}

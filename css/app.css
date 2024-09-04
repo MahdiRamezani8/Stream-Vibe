@@ -161,6 +161,17 @@ h3 {
   );
 }
 
+h4 {
+  font-size: 1.125rem;
+  font-size: clamp(
+    1.125rem,
+    1.0653225806451614rem + 0.25806451612903225vw,
+    1.375rem
+  );
+
+  font-weight: lighter;
+}
+
 p {
   color: var(--c-gray-60);
   font-size: 0.875rem;
@@ -176,7 +187,10 @@ button {
 }
 
 p,
-h1 {
+h1,
+h2,
+h3,
+h4 {
   line-height: 1.5;
 }
 
@@ -185,4 +199,5 @@ h1 {
   flex-direction: column;
   gap: 10px;
   margin-bottom: 80px;
+  align-items: flex-start;
 }

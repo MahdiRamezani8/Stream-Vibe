@@ -594,15 +594,18 @@ var _genreSplideViewDefault = parcelHelpers.interopDefault(_genreSplideView);
 var _devicesView = require("../views/indexViews/devicesView");
 var _devicesViewDefault = parcelHelpers.interopDefault(_devicesView);
 var _config = require("../config");
+var _faqsView = require("../views/sectionsView/FAQsView");
+var _faqsViewDefault = parcelHelpers.interopDefault(_faqsView);
 function init() {
     // appending elements:
     (0, _genreSplideViewDefault.default).render();
     (0, _navViewDefault.default).render();
     (0, _devicesViewDefault.default).render((0, _config.devices));
+    (0, _faqsViewDefault.default).render((0, _config.FAQs));
 }
 init();
 
-},{"core-js/modules/web.immediate.js":"49tUX","regenerator-runtime/runtime":"dXNgZ","../views/sectionsView/navView":"1MyVo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../views/sectionsView/genreSplideView":"hfbbQ","../views/indexViews/devicesView":"yEMPn","../config":"4Wc5b"}],"49tUX":[function(require,module,exports) {
+},{"core-js/modules/web.immediate.js":"49tUX","regenerator-runtime/runtime":"dXNgZ","../views/sectionsView/navView":"1MyVo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../views/sectionsView/genreSplideView":"hfbbQ","../views/indexViews/devicesView":"yEMPn","../config":"4Wc5b","../views/sectionsView/FAQsView":"9vUxp"}],"49tUX":[function(require,module,exports) {
 "use strict";
 // TODO: Remove this module from `core-js@4` since it's split to modules listed below
 require("52e9b3eefbbce1ed");
@@ -5824,6 +5827,7 @@ parcelHelpers.export(exports, "SLIDES_PER_PAGE_LT", ()=>SLIDES_PER_PAGE_LT);
 parcelHelpers.export(exports, "SLIDES_PER_PAGE_DE", ()=>SLIDES_PER_PAGE_DE);
 parcelHelpers.export(exports, "mediaQueryConfig", ()=>mediaQueryConfig);
 parcelHelpers.export(exports, "devices", ()=>devices);
+parcelHelpers.export(exports, "FAQs", ()=>FAQs);
 const API_KEY = "e82b2dba";
 const URL = `http://www.omdbapi.com/?apikey=${API_KEY}&`;
 const SLIDES_PER_PAGE_MB = 2;
@@ -5866,6 +5870,40 @@ const devices = [
         icon: "VR",
         device: "VR headsets",
         caption: "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store"
+    }
+];
+const FAQs = [
+    {
+        question: "What is StreamVibe?",
+        answer: "StreamVibe is a streaming service that allows you to watch movies and shows on demand."
+    },
+    {
+        question: "How much does StreamVibe cost?",
+        answer: "StreamVibe is a streaming service that allows you to watch movies and shows on demand."
+    },
+    {
+        question: "What content is available on StreamVibe?",
+        answer: "StreamVibe is a streaming service that allows you to watch movies and shows on demand."
+    },
+    {
+        question: "How can I watch StreamVibe?",
+        answer: "StreamVibe is a streaming service that allows you to watch movies and shows on demand."
+    },
+    {
+        question: "How do I sign up for StreamVibe?",
+        answer: "StreamVibe is a streaming service that allows you to watch movies and shows on demand."
+    },
+    {
+        question: "What is the StreamVibe free trial?",
+        answer: "StreamVibe is a streaming service that allows you to watch movies and shows on demand."
+    },
+    {
+        question: "How do I contact StreamVibe customer support?",
+        answer: "StreamVibe is a streaming service that allows you to watch movies and shows on demand."
+    },
+    {
+        question: "What are the StreamVibe payment methods?",
+        answer: "StreamVibe is a streaming service that allows you to watch movies and shows on demand."
     }
 ];
 const POSTER_MOVIES = {
@@ -6097,6 +6135,57 @@ exports.default = new DevicesView();
 },{"../view":"7MbWE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../icons/icons.svg":"aUFhk"}],"aUFhk":[function(require,module,exports) {
 module.exports = require("dc532ecd6313c8e9").getBundleURL("lAF1V") + "icons.012a97ad.svg" + "?" + Date.now();
 
-},{"dc532ecd6313c8e9":"lgJ39"}]},["dicMD","aB3ls"], "aB3ls", "parcelRequire0374")
+},{"dc532ecd6313c8e9":"lgJ39"}],"9vUxp":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _view = require("../view");
+var _viewDefault = parcelHelpers.interopDefault(_view);
+var _iconsSvg = require("../../../icons/icons.svg");
+var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
+class FAQsView extends (0, _viewDefault.default) {
+    _parentEl = document.querySelector(".FAQs__list");
+    render(FAQs) {
+        const generatedMarkup = this._generateMarkup(FAQs);
+        this.appendToDom(this._parentEl, generatedMarkup, "beforeend");
+        this._eventListener();
+    }
+    _eventListener() {
+        this._parentEl.addEventListener("click", (e)=>this._showAnswer.call(this, e));
+    }
+    _showAnswer({ target }) {
+        if (!target) return;
+        const userTarget = target.closest(".FAQs__list__item");
+        const openItem = this._parentEl.querySelector(".FAQs__list__item.open");
+        // If there is already an open item, close it (if it's not the clicked one)
+        if (openItem && openItem !== userTarget) openItem.classList.remove("open");
+        // Toggle the clicked item
+        if (userTarget !== openItem) userTarget.classList.add("open");
+        else userTarget.classList.toggle("open");
+    }
+    _generateMarkup(FAQs) {
+        return FAQs.map((FAQ, i)=>`
+      <li class="FAQs__list__item">
+        <header class="FAQs__list__item_Q">
+          <span>${(i + 1).toString().padStart(2, "0")}</span>
+          <h4>${FAQ.question}</h4>
+          <button class="btn btn--transparent">
+            <svg class="minus" width="18" height="18" fill="white">
+              <use href="${0, _iconsSvgDefault.default}#minus"></use>
+            </svg>
+            <svg class="plus" width="18" height="18" fill="white">
+              <use href="${0, _iconsSvgDefault.default}#plus"></use>
+            </svg>
+          </button>
+        </header>
+        <footer class="FAQs__list__item_A">
+          <p>${FAQ.answer}</p>
+        </footer>
+      </li>
+            `).join("");
+    }
+}
+exports.default = new FAQsView();
+
+},{"../view":"7MbWE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../icons/icons.svg":"aUFhk"}]},["dicMD","aB3ls"], "aB3ls", "parcelRequire0374")
 
 //# sourceMappingURL=index.878c95f2.js.map

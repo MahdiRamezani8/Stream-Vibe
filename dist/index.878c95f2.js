@@ -596,16 +596,19 @@ var _devicesViewDefault = parcelHelpers.interopDefault(_devicesView);
 var _config = require("../config");
 var _faqsView = require("../views/sectionsView/FAQsView");
 var _faqsViewDefault = parcelHelpers.interopDefault(_faqsView);
+var _footerView = require("../views/sectionsView/footerView");
+var _footerViewDefault = parcelHelpers.interopDefault(_footerView);
 function init() {
     // appending elements:
     (0, _genreSplideViewDefault.default).render();
     (0, _navViewDefault.default).render();
     (0, _devicesViewDefault.default).render((0, _config.devices));
     (0, _faqsViewDefault.default).render((0, _config.FAQs));
+    (0, _footerViewDefault.default).render((0, _config.footerLists));
 }
 init();
 
-},{"core-js/modules/web.immediate.js":"49tUX","regenerator-runtime/runtime":"dXNgZ","../views/sectionsView/navView":"1MyVo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../views/sectionsView/genreSplideView":"hfbbQ","../views/indexViews/devicesView":"yEMPn","../config":"4Wc5b","../views/sectionsView/FAQsView":"9vUxp"}],"49tUX":[function(require,module,exports) {
+},{"core-js/modules/web.immediate.js":"49tUX","regenerator-runtime/runtime":"dXNgZ","../views/sectionsView/navView":"1MyVo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../views/sectionsView/genreSplideView":"hfbbQ","../views/indexViews/devicesView":"yEMPn","../config":"4Wc5b","../views/sectionsView/FAQsView":"9vUxp","../views/sectionsView/footerView":"4umAp"}],"49tUX":[function(require,module,exports) {
 "use strict";
 // TODO: Remove this module from `core-js@4` since it's split to modules listed below
 require("52e9b3eefbbce1ed");
@@ -5828,6 +5831,7 @@ parcelHelpers.export(exports, "SLIDES_PER_PAGE_DE", ()=>SLIDES_PER_PAGE_DE);
 parcelHelpers.export(exports, "mediaQueryConfig", ()=>mediaQueryConfig);
 parcelHelpers.export(exports, "devices", ()=>devices);
 parcelHelpers.export(exports, "FAQs", ()=>FAQs);
+parcelHelpers.export(exports, "footerLists", ()=>footerLists);
 const API_KEY = "e82b2dba";
 const URL = `http://www.omdbapi.com/?apikey=${API_KEY}&`;
 const SLIDES_PER_PAGE_MB = 2;
@@ -5904,6 +5908,47 @@ const FAQs = [
     {
         question: "What are the StreamVibe payment methods?",
         answer: "StreamVibe is a streaming service that allows you to watch movies and shows on demand."
+    }
+];
+const footerLists = [
+    {
+        title: "Home",
+        items: [
+            "categories",
+            "devices",
+            "FAQ"
+        ]
+    },
+    {
+        title: "Movies",
+        items: [
+            "genres",
+            "trending",
+            "new releases",
+            "popular"
+        ]
+    },
+    {
+        title: "shows",
+        items: [
+            "genres",
+            "trending",
+            "new releases",
+            "popular"
+        ]
+    },
+    {
+        title: "support",
+        items: [
+            "contact us"
+        ]
+    },
+    {
+        title: "subscription",
+        items: [
+            "plans",
+            "features"
+        ]
     }
 ];
 const POSTER_MOVIES = {
@@ -6186,6 +6231,65 @@ class FAQsView extends (0, _viewDefault.default) {
 }
 exports.default = new FAQsView();
 
-},{"../view":"7MbWE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../icons/icons.svg":"aUFhk"}]},["dicMD","aB3ls"], "aB3ls", "parcelRequire0374")
+},{"../view":"7MbWE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../icons/icons.svg":"aUFhk"}],"4umAp":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _view = require("../view");
+var _viewDefault = parcelHelpers.interopDefault(_view);
+var _iconsSvg = require("../../../icons/icons.svg");
+var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
+class FooterView extends (0, _viewDefault.default) {
+    render(footerLists) {
+        const generatedMarkup = this._generateMarkup(footerLists);
+        this.appendToDom(document.body, generatedMarkup, "beforeend");
+    }
+    _generateMarkup(footerLists) {
+        return `
+    <footer class="footer">
+       <header class="footer__head">
+       ${footerLists.map((list)=>{
+            return `
+                <ul class="footer__head__list">
+                   <li class="footer__head__list__item"><b><a href="#">${list.title}</a></b></li>
+                    ${list.items.map((item)=>` <li class="footer__head__list"><a href="#">${item}</a></li>`).join("")}
+                </ul>`;
+        }).join("")}
+            <div class="footer__head__socials">
+                <b>connect with us</b>
+
+                <div>
+                    <a href="#">
+                        <button class="">
+                            <svg width="20" height="20" fill="white">
+                                <use href="${0, _iconsSvgDefault.default}#telegram"></use>
+                            </svg>
+                        </button>
+                    </a>
+
+                    <a href="#">
+                        <button class="">
+                            <svg width="20" height="20" fill="white">
+                                <use href="${0, _iconsSvgDefault.default}#github"></use>
+                            </svg>
+                        </button>
+                    </a>
+                </div>
+            </div> 
+       </header>
+       <footer class="footer__foot"> 
+            <p>&copy; StramVibe All Rights Reserved</p>
+            <ul class="footer__foot__list">
+                <li class="footer__foot__list__item"><a href="#">terms of use</a></li>
+                <li class="footer__foot__list__item"><a href="#">privacy policy</a></li>
+                <li class="footer__foot__list__item"><a href="#">cookie policy</a></li>
+            </ul>
+       </footer>
+    </footer>
+        `;
+    }
+}
+exports.default = new FooterView();
+
+},{"../view":"7MbWE","../../../icons/icons.svg":"aUFhk","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["dicMD","aB3ls"], "aB3ls", "parcelRequire0374")
 
 //# sourceMappingURL=index.878c95f2.js.map

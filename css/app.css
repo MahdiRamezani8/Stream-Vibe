@@ -182,6 +182,16 @@ p {
   );
 }
 
+li {
+  color: var(--c-gray-60);
+  font-size: 0.875rem;
+  font-size: clamp(
+    0.875rem,
+    0.8153225806451613rem + 0.25806451612903225vw,
+    1.125rem
+  );
+}
+
 button {
   font-family: "Manrope", Arial, Helvetica, sans-serif;
 }

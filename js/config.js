@@ -93,6 +93,14 @@ export const FAQs = [
   },
 ];
 
+export const footerLists = [
+  { title: "Home", items: ["categories", "devices", "FAQ"] },
+  { title: "Movies", items: ["genres", "trending", "new releases", "popular"] },
+  { title: "shows", items: ["genres", "trending", "new releases", "popular"] },
+  { title: "support", items: ["contact us"] },
+  { title: "subscription", items: ["plans", "features"] },
+];
+
 const POSTER_MOVIES = {
   action: ["the union", "civil war", "deadpool", "the fall guy"],
   adventure: ["blue beetle", "atlas", "spaceman", "borderlands"],

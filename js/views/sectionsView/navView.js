@@ -45,6 +45,7 @@ class NavView extends View {
 
   _intersectionObserevrHandler() {
     const headerEl = document.querySelector(".header");
+    if (!headerEl) return;
     const navEls = document.querySelectorAll(".nav");
 
     function obsereveCallback([entry]) {

@@ -1,5 +1,7 @@
 @import url("./sections/nav.css");
 @import url("./sections/button.css");
+@import url("./sections/footer.css");
+@import url("./sections/FAQs.css");
 
 :root {
   /* colors =>  */

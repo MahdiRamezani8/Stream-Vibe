@@ -132,6 +132,38 @@
   display: block;
 }
 
+@media (width > 768px) {
+  .footer__head {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer__foot {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (width > 1440px) {
+  .footer__head {
+    width: 100%;
+    display: flex;
+  }
+
+  .footer__head > * {
+    flex: 1;
+  }
+}
+
+@media (width > 768px) {
+  .FAQs__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .FAQs__list__item:nth-last-child(2):after {
+    all: unset;
+  }
+}
+
 :root {
   --c-white: #fff;
   --c-black: #000;
